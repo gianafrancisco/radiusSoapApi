@@ -1,0 +1,424 @@
+2014/03/24 13:56:27 [error] [application] exception 'CException' with message 'SiteController cannot find the requested view "add".' in /home/francisco/yii-1.1.14/framework/web/CController.php:878
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(782): CController->renderPartial('add', NULL, true)
+#1 /var/www/soapApi/protected/controllers/SiteController.php(54): CController->render('add')
+#2 [internal function]: SiteController->Add('8.8.8.8')
+#3 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(190): SoapServer->handle()
+#4 /home/francisco/yii-1.1.14/framework/web/services/CWebServiceAction.php(103): CWebService->run()
+#5 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#6 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CAction->runWithParams(Array)
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(286): CController->runAction(Object(CWebServiceAction))
+#8 /home/francisco/yii-1.1.14/framework/web/CController.php(265): CController->runActionWithFilters(Object(CWebServiceAction), Array)
+#9 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('soap')
+#10 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/soap')
+#11 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/soapApi/index.php(13): CApplication->run()
+#13 {main}
+in /var/www/soapApi/index.php (13)
+2014/03/24 14:09:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
+2014/03/24 21:12:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
+2014/04/02 19:55:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "soap/api".' in /home/francisco/yii-1.1.14/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('soap/api')
+#1 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /var/www/soapApi/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/soapApi/index.php?r=soap/api
+---
+2014/04/02 22:15:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "soap".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('soap')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('soap')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/soap')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/soap&ws=1
+---
+2014/04/02 22:21:02 [error] [php] include(anyType.php): failed to open stream: No such file or directory (/home/francisco/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(287): import()
+#1 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(257): CWsdlGenerator->processType()
+#2 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(223): CWsdlGenerator->processMethod()
+#3 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(151): CWsdlGenerator->generateWsdl()
+#4 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(129): CWebService->generateWsdl()
+#5 /home/francisco/yii-1.1.14/framework/web/services/CWebServiceAction.php(105): CWebService->renderWsdl()
+#6 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#8 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#9 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap&id=112
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:21:20 [error] [php] include(anyType.php): failed to open stream: No such file or directory (/home/francisco/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(287): import()
+#1 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(257): CWsdlGenerator->processType()
+#2 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(223): CWsdlGenerator->processMethod()
+#3 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(151): CWsdlGenerator->generateWsdl()
+#4 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(129): CWebService->generateWsdl()
+#5 /home/francisco/yii-1.1.14/framework/web/services/CWebServiceAction.php(105): CWebService->renderWsdl()
+#6 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#8 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#9 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:21:20 [error] [php] SoapServer::SoapServer(http://127.0.0.1/soapApi/index.php?r=site/soap): failed to open stream: HTTP request failed! HTTP/1.0 500 Internal Server Error
+ (/home/francisco/yii-1.1.14/framework/web/services/CWebService.php:165)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#1 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#2 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#3 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#6 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap&ws=1
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:21:49 [error] [php] include(anyType.php): failed to open stream: No such file or directory (/home/francisco/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(287): import()
+#1 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(257): CWsdlGenerator->processType()
+#2 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(223): CWsdlGenerator->processMethod()
+#3 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(151): CWsdlGenerator->generateWsdl()
+#4 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(129): CWebService->generateWsdl()
+#5 /home/francisco/yii-1.1.14/framework/web/services/CWebServiceAction.php(105): CWebService->renderWsdl()
+#6 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#8 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#9 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:21:49 [error] [php] SoapServer::SoapServer(http://127.0.0.1/soapApi/index.php?r=site/soap): failed to open stream: HTTP request failed! HTTP/1.0 500 Internal Server Error
+ (/home/francisco/yii-1.1.14/framework/web/services/CWebService.php:165)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#1 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#2 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#3 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#6 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap&ws=1
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:22:39 [error] [php] include(anyType.php): failed to open stream: No such file or directory (/home/francisco/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(287): import()
+#1 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(257): CWsdlGenerator->processType()
+#2 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(223): CWsdlGenerator->processMethod()
+#3 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(151): CWsdlGenerator->generateWsdl()
+#4 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(129): CWebService->generateWsdl()
+#5 /home/francisco/yii-1.1.14/framework/web/services/CWebServiceAction.php(105): CWebService->renderWsdl()
+#6 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#8 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#9 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:22:39 [error] [php] SoapServer::SoapServer(http://127.0.0.1/soapApi/index.php?r=site/soap): failed to open stream: HTTP request failed! HTTP/1.0 500 Internal Server Error
+ (/home/francisco/yii-1.1.14/framework/web/services/CWebService.php:165)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#1 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#2 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#3 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#6 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap&ws=1
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:22:47 [error] [php] include(anyType.php): failed to open stream: No such file or directory (/home/francisco/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(287): import()
+#1 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(257): CWsdlGenerator->processType()
+#2 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(223): CWsdlGenerator->processMethod()
+#3 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(151): CWsdlGenerator->generateWsdl()
+#4 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(129): CWebService->generateWsdl()
+#5 /home/francisco/yii-1.1.14/framework/web/services/CWebServiceAction.php(105): CWebService->renderWsdl()
+#6 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#8 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#9 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap&id=1112
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:23:05 [error] [php] include(anyType.php): failed to open stream: No such file or directory (/home/francisco/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(287): import()
+#1 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(257): CWsdlGenerator->processType()
+#2 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(223): CWsdlGenerator->processMethod()
+#3 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(151): CWsdlGenerator->generateWsdl()
+#4 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(129): CWebService->generateWsdl()
+#5 /home/francisco/yii-1.1.14/framework/web/services/CWebServiceAction.php(105): CWebService->renderWsdl()
+#6 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#8 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#9 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:23:05 [error] [php] SoapServer::SoapServer(http://127.0.0.1/soapApi/index.php?r=site/soap): failed to open stream: HTTP request failed! HTTP/1.0 500 Internal Server Error
+ (/home/francisco/yii-1.1.14/framework/web/services/CWebService.php:165)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#1 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#2 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#3 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#6 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#8 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap&ws=1
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:24:38 [error] [php] include(anyType.php): failed to open stream: No such file or directory (/home/francisco/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(287): import()
+#1 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(257): CWsdlGenerator->processType()
+#2 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(223): CWsdlGenerator->processMethod()
+#3 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(151): CWsdlGenerator->generateWsdl()
+#4 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(129): CWebService->generateWsdl()
+#5 /home/francisco/yii-1.1.14/framework/web/services/CWebServiceAction.php(105): CWebService->renderWsdl()
+#6 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#8 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#9 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:24:57 [error] [php] include(anyType.php): failed to open stream: No such file or directory (/home/francisco/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(287): import()
+#1 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(257): CWsdlGenerator->processType()
+#2 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(223): CWsdlGenerator->processMethod()
+#3 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(151): CWsdlGenerator->generateWsdl()
+#4 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(129): CWebService->generateWsdl()
+#5 /home/francisco/yii-1.1.14/framework/web/services/CWebServiceAction.php(105): CWebService->renderWsdl()
+#6 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#8 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#9 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:25:33 [error] [php] include(anyType.php): failed to open stream: No such file or directory (/home/francisco/yii-1.1.14/framework/YiiBase.php:427)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(287): import()
+#1 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(257): CWsdlGenerator->processType()
+#2 /home/francisco/yii-1.1.14/framework/web/services/CWsdlGenerator.php(223): CWsdlGenerator->processMethod()
+#3 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(151): CWsdlGenerator->generateWsdl()
+#4 /home/francisco/yii-1.1.14/framework/web/services/CWebService.php(129): CWebService->generateWsdl()
+#5 /home/francisco/yii-1.1.14/framework/web/services/CWebServiceAction.php(105): CWebService->renderWsdl()
+#6 /home/francisco/yii-1.1.14/framework/web/actions/CAction.php(76): CWebServiceAction->run()
+#7 /home/francisco/yii-1.1.14/framework/web/CController.php(308): CWebServiceAction->runWithParams()
+#8 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(133): SiteController->runAction()
+#9 /home/francisco/yii-1.1.14/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /home/francisco/yii-1.1.14/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#11 /home/francisco/yii-1.1.14/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /home/francisco/yii-1.1.14/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /home/francisco/yii-1.1.14/framework/web/CController.php(291): CFilterChain->run()
+#14 /home/francisco/yii-1.1.14/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#18 /var/www/soapApi/index.php(14): CWebApplication->run()
+REQUEST_URI=/soapApi/index.php?r=site/soap
+in /var/www/soapApi/index.php (14)
+2014/04/02 22:58:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
+2014/04/02 22:59:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
+2014/04/02 22:59:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
+2014/04/02 23:00:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
+2014/04/02 23:00:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
+2014/04/02 23:00:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
+2014/04/02 23:01:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
+2014/04/05 21:29:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
+2014/04/05 22:42:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in /home/francisco/yii-1.1.14/framework/web/CController.php:483
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/web/CController.php(270): CController->missingAction('login')
+#1 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(282): CController->run('login')
+#2 /home/francisco/yii-1.1.14/framework/web/CWebApplication.php(141): CWebApplication->runController('site/login')
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /var/www/soapApi/index.php(14): CApplication->run()
+#5 {main}
+REQUEST_URI=/soapApi/index.php?r=site/login
+---
