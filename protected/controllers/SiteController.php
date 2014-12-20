@@ -14,7 +14,7 @@ class SiteController extends Controller {
                 'actions' => array('error', 'index', 'soap'),
                 'ips' => array('*')),
             array('allow',
-                'actions' => array('add', 'del', 'show', 'init', 'flush'),
+                'actions' => array('suspend', 'unsuspend', 'speedLimit'),
                 'ips' => Yii::app()->params['acl']),
             array('deny',
                 'ips' => array('*')
@@ -56,143 +56,140 @@ class SiteController extends Controller {
     }
 
     /**
-     * @param string the ipsrc
+     * @param string the username
      * @return bool
      * @soap
      */
-    public function Add($ipsrc) {
-        if ($this->checkAcl(CHttpRequest::getUserHostAddress())) {
+    public function Suspend($username) {
+
+        $model = Radusergroup::model();
+        $userGroups = $model->findAllByAttributes(array("username" => $username));
+        $reject = false;
+        $db = $user = Yii::app()->db;
+        if ($userGroups == NULL) {
+            return false;
+        } else {
+            foreach ($userGroups as $group) {
+                if ($group->groupname == "REJECT") {
+                    $reject = true;
+                    $group->priority = 0;
+                }
+                /* else {
+                  $group->priority++;
+                  } */
+                $group->update();
+            }
+            if (!$reject) {
+                $newGroup = new Radusergroup();
+                $newGroup->username = $username;
+                $newGroup->groupname = "REJECT";
+                $newGroup->priority = 0;
+                $newGroup->save();
+            }
             $commandPath = Yii::app()->getBasePath() . DIRECTORY_SEPARATOR . 'commands';
             $runner = new CConsoleCommandRunner();
             $runner->addCommands($commandPath);
-            $Cmd = new IptablesCommand("IPTABLES", $runner);
-            if ($Cmd->actionAdd($ipsrc) == 0) {
-                $ips = Ips::model()->findAllByAttributes(array('ip' => $ipsrc));
-                if ($ips == NULL) {
-                    $ip = new Ips();
-                    $ip->ip = $ipsrc;
-                    $ip->ttl = 1440;
-                    $ip->save();
-                }
-                return true;
-            } else {
-                return false;
-            }
+            $Cmd = new RadClientCommand("RADCLIENT", $runner);
+            $Cmd->actionDisconnect($username);
+            return true;
         }
-        return false;
     }
 
     /**
-     * @param string the ipsrc
+     * @param string the username
      * @return bool
      * @soap
      */
-    public function Del($ipsrc) {
-        if ($this->checkAcl(CHttpRequest::getUserHostAddress())) {
-            $commandPath = Yii::app()->getBasePath() . DIRECTORY_SEPARATOR . 'commands';
-            $runner = new CConsoleCommandRunner();
-            $runner->addCommands($commandPath);
-            $Cmd = new IptablesCommand("IPTABLES", $runner);
-
-            if ($Cmd->actionDel($ipsrc) == 0) {
-                $ips = Ips::model()->findAllByAttributes(array('ip' => $ipsrc));
-                if ($ips != NULL) {
-                    $ips[0]->delete();
+    public function UnSuspend($username) {
+        $model = Radusergroup::model();
+        $userGroups = $model->findAllByAttributes(array("username" => $username));
+        $reject = false;
+        $db = $user = Yii::app()->db;
+        if ($userGroups == NULL) {
+            return false;
+        } else {
+            foreach ($userGroups as $group) {
+                if ($group->groupname == "REJECT") {
+                    $reject = true;
+                    $group->priority = 9;
                 }
-                return true;
-            } else {
-                return false;
+                /* else {
+                  $group->priority++;
+                  } */
+                $group->update();
             }
+            if (!$reject) {
+                $newGroup = new Radusergroup();
+                $newGroup->username = $username;
+                $newGroup->groupname = "REJECT";
+                $newGroup->priority = 9;
+                $newGroup->save();
+            }
+            return true;
         }
-        return false;
     }
 
     /**
-     * @param string the table
-     * @return string
+     * @param string the username
+     * @param integer the uplimit
+     * @param integer the downlimit
+     * @return bool
      * @soap
      */
-    public function Show($table = 'Proxy') {
-        if ($this->checkAcl(CHttpRequest::getUserHostAddress())) {
-            $commandPath = Yii::app()->getBasePath() . DIRECTORY_SEPARATOR . 'commands';
-            $runner = new CConsoleCommandRunner();
-            $runner->addCommands($commandPath);
-            $Cmd = new IptablesCommand("IPTABLES", $runner);
-            $Res = $Cmd->actionShow();
-            if ($Res == 1) {
-                return false;
+    public function SpeedLimit($username, $uplimit, $downlimit) {
+        /*
+         * Cisco-AVPair 
+         * 
+         * lcp:interface-config=rate-limit output 10485760 16000 32000 conform-action transmit exceed-action drop
+         * lcp:interface-config=rate-limit input 10485760 16000 32000 conform-action transmit exceed-action drop
+         * 
+         * first    = $limit
+         * second   = $limit / 600
+         * third    = $limit / 300
+         */
+
+        $user = Radcheck::model()->findAllByAttributes(array('username' => $username));
+
+        if ($user == NULL) {
+            return false;
+        }
+        if ($uplimit > 0 && $downlimit > 0) {
+            $cisco_downlimit = "lcp:interface-config=rate-limit output " . $downlimit . " " . round($downlimit / 600) . " " . round($downlimit / 300) . " conform-action transmit exceed-action drop";
+            $cisco_uplimit = "lcp:interface-config=rate-limit input " . $uplimit . " " . round($uplimit / 600) . " " . round($uplimit / 300) . " conform-action transmit exceed-action drop";
+
+            $reply = Radreply::model()->findAllByAttributes(array("username" => $username, "attribute" => "Cisco-AVPair"));
+            if ($reply != NULL) {
+                $attrReply = $reply[0];
+                $attrReply->username = $username;
+                $attrReply->attribute = "Cisco-AVPair";
+                $attrReply->op = ":=";
+                $attrReply->value = $cisco_downlimit;
+                $attrReply->update();
+                $attrReply = $reply[1];
+                $attrReply->username = $username;
+                $attrReply->attribute = "Cisco-AVPair";
+                $attrReply->op = ":=";
+                $attrReply->value = $cisco_uplimit;
+                $attrReply->update();
             } else {
-                return $Res;
+                $attrReply = new Radreply();
+                $attrReply->username = $username;
+                $attrReply->attribute = "Cisco-AVPair";
+                $attrReply->op = ":=";
+                $attrReply->value = $cisco_downlimit;
+                $attrReply->save();
+
+                $attrReply = new Radreply();
+                $attrReply->username = $username;
+                $attrReply->attribute = "Cisco-AVPair";
+                $attrReply->op = ":=";
+                $attrReply->value = $cisco_uplimit;
+                $attrReply->save();
             }
+            return true;
+        } else {
+            return false;
         }
-        return false;
-    }
-
-    public function actionAdd() {
-        $ipsrc = $_GET['ipsrc'];
-        $ips = Ips::model()->findAllByAttributes(array('ip' => $ipsrc));
-        if ($ips == NULL) {
-            $ip = new Ips();
-            $ip->ip = $ipsrc;
-            $ip->ttl = 1440;
-            $ip->save();
-        }
-        return true;
-
-        $commandPath = Yii::app()->getBasePath() . DIRECTORY_SEPARATOR . 'commands';
-        $runner = new CConsoleCommandRunner();
-        $runner->addCommands($commandPath);
-        $Cmd = new IptablesCommand("IPTABLES", $runner);
-        $ipsrc = $_GET['ipsrc'];
-        $Cmd->actionAdd($ipsrc);
-        $this->render('index');
-    }
-
-    public function actionDel() {
-        $commandPath = Yii::app()->getBasePath() . DIRECTORY_SEPARATOR . 'commands';
-        $runner = new CConsoleCommandRunner();
-        $runner->addCommands($commandPath);
-        $Cmd = new IptablesCommand("IPTABLES", $runner);
-        $ipsrc = $_GET['ipsrc'];
-        $Cmd->actionDel($ipsrc);
-        $this->render('index');
-    }
-
-    public function actionFlush() {
-        $commandPath = Yii::app()->getBasePath() . DIRECTORY_SEPARATOR . 'commands';
-        $runner = new CConsoleCommandRunner();
-        $runner->addCommands($commandPath);
-        $Cmd = new IptablesCommand("IPTABLES", $runner);
-        $Cmd->actionFlush();
-        $this->render('index');
-    }
-
-    public function actionInit() {
-        $commandPath = Yii::app()->getBasePath() . DIRECTORY_SEPARATOR . 'commands';
-        $runner = new CConsoleCommandRunner();
-        $runner->addCommands($commandPath);
-        $Cmd = new IptablesCommand("IPTABLES", $runner);
-        $Cmd->actionInit();
-        $this->render('index');
-    }
-
-    public function actionShow() {
-        $commandPath = Yii::app()->getBasePath() . DIRECTORY_SEPARATOR . 'commands';
-        $runner = new CConsoleCommandRunner();
-        $runner->addCommands($commandPath);
-        $Cmd = new IptablesCommand("IPTABLES", $runner);
-        $Cmd->actionShow();
-        $this->render('index');
-    }
-
-    public function checkAcl($ip) {
-        $match = false;
-        foreach (Yii::app()->params['acl'] as $value) {
-            if ($ip == $value || $value == '*') {
-                $match = true;
-            }
-        }
-        return $match;
     }
 
 }

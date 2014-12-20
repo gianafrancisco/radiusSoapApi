@@ -1,21 +1,27 @@
 <?php
 
 /**
- * This is the model class for table "ips".
+ * This is the model class for table "nas".
  *
- * The followings are the available columns in table 'ips':
- * @property integer $id_smartdns
- * @property string $ip
- * @property integer $ttl
+ * The followings are the available columns in table 'nas':
+ * @property integer $id
+ * @property string $nasname
+ * @property string $shortname
+ * @property string $type
+ * @property integer $ports
+ * @property string $secret
+ * @property string $server
+ * @property string $community
+ * @property string $description
  */
-class Ips extends CActiveRecord
+class Nas extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'ips';
+		return 'nas';
 	}
 
 	/**
@@ -26,12 +32,18 @@ class Ips extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ip, ttl', 'required'),
-			array('ttl', 'numerical', 'integerOnly'=>true),
-			array('ip', 'length', 'max'=>15),
+			array('nasname', 'required'),
+			array('ports', 'numerical', 'integerOnly'=>true),
+			array('nasname', 'length', 'max'=>128),
+			array('shortname', 'length', 'max'=>32),
+			array('type', 'length', 'max'=>30),
+			array('secret', 'length', 'max'=>60),
+			array('server', 'length', 'max'=>64),
+			array('community', 'length', 'max'=>50),
+			array('description', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_smartdns, ip, ttl', 'safe', 'on'=>'search'),
+			array('id, nasname, shortname, type, ports, secret, server, community, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,9 +64,15 @@ class Ips extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_smartdns' => 'Id Smartdns',
-			'ip' => 'Ip',
-			'ttl' => 'Ttl',
+			'id' => 'ID',
+			'nasname' => 'Nasname',
+			'shortname' => 'Shortname',
+			'type' => 'Type',
+			'ports' => 'Ports',
+			'secret' => 'Secret',
+			'server' => 'Server',
+			'community' => 'Community',
+			'description' => 'Description',
 		);
 	}
 
@@ -76,9 +94,15 @@ class Ips extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_smartdns',$this->id_smartdns);
-		$criteria->compare('ip',$this->ip,true);
-		$criteria->compare('ttl',$this->ttl);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('nasname',$this->nasname,true);
+		$criteria->compare('shortname',$this->shortname,true);
+		$criteria->compare('type',$this->type,true);
+		$criteria->compare('ports',$this->ports);
+		$criteria->compare('secret',$this->secret,true);
+		$criteria->compare('server',$this->server,true);
+		$criteria->compare('community',$this->community,true);
+		$criteria->compare('description',$this->description,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -89,7 +113,7 @@ class Ips extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Ips the static model class
+	 * @return Nas the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

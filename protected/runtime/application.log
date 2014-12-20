@@ -422,3 +422,142 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/soapApi/index.php?r=site/login
 ---
+2014/12/20 11:34:01 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.nasname" is not defined.' in /home/francisco/yii-1.1.14/framework/base/CComponent.php:173
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/db/schema/CDbCriteria.php(160): CComponent->__set('nasname', '192.168.1.201')
+#1 /home/francisco/yii-1.1.14/framework/db/schema/CDbCommandBuilder.php(585): CDbCriteria->__construct(Array)
+#2 /home/francisco/yii-1.1.14/framework/db/ar/CActiveRecord.php(1455): CDbCommandBuilder->createCriteria(Array, Array)
+#3 /var/www/radiusSoapApi/protected/commands/RadClientCommand.php(19): CActiveRecord->find(Array)
+#4 [internal function]: RadClientCommand->actionDisconnect('francisco')
+#5 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(RadClientCommand), Array)
+#6 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#7 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#8 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#9 /home/francisco/yii-1.1.14/framework/yiic.php(33): CApplication->run()
+#10 /var/www/radiusSoapApi/protected/yiic.php(8): require_once('/home/francisco...')
+#11 {main}
+---
+2014/12/20 11:35:48 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.nasname" is not defined.' in /home/francisco/yii-1.1.14/framework/base/CComponent.php:173
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/db/schema/CDbCriteria.php(160): CComponent->__set('nasname', '192.168.1.201')
+#1 /home/francisco/yii-1.1.14/framework/db/schema/CDbCommandBuilder.php(585): CDbCriteria->__construct(Array)
+#2 /home/francisco/yii-1.1.14/framework/db/ar/CActiveRecord.php(1455): CDbCommandBuilder->createCriteria(Array, Array)
+#3 /var/www/radiusSoapApi/protected/commands/RadClientCommand.php(19): CActiveRecord->find(Array)
+#4 [internal function]: RadClientCommand->actionDisconnect('francisco')
+#5 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(RadClientCommand), Array)
+#6 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#7 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#8 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#9 /home/francisco/yii-1.1.14/framework/yiic.php(33): CApplication->run()
+#10 /var/www/radiusSoapApi/protected/yiic.php(8): require_once('/home/francisco...')
+#11 {main}
+---
+2014/12/20 11:36:38 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.nasname" is not defined.' in /home/francisco/yii-1.1.14/framework/base/CComponent.php:173
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/db/schema/CDbCriteria.php(160): CComponent->__set('nasname', '192.168.1.201')
+#1 /home/francisco/yii-1.1.14/framework/db/schema/CDbCommandBuilder.php(585): CDbCriteria->__construct(Array)
+#2 /home/francisco/yii-1.1.14/framework/db/ar/CActiveRecord.php(1455): CDbCommandBuilder->createCriteria(Array, Array)
+#3 /var/www/radiusSoapApi/protected/commands/RadClientCommand.php(20): CActiveRecord->find(Array)
+#4 [internal function]: RadClientCommand->actionDisconnect('francisco')
+#5 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(RadClientCommand), Array)
+#6 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#7 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#8 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#9 /home/francisco/yii-1.1.14/framework/yiic.php(33): CApplication->run()
+#10 /var/www/radiusSoapApi/protected/yiic.php(8): require_once('/home/francisco...')
+#11 {main}
+---
+2014/12/20 11:38:45 [error] [php] Use of undefined constant this - assumed 'this' (/var/www/radiusSoapApi/protected/components/RadClient.php:26)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#1 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): RadClientCommand->run()
+#2 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#4 /home/francisco/yii-1.1.14/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/radiusSoapApi/protected/yiic.php(8): require_once()
+
+2014/12/20 11:38:48 [error] [php] Use of undefined constant this - assumed 'this' (/var/www/radiusSoapApi/protected/components/RadClient.php:26)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#1 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): RadClientCommand->run()
+#2 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#4 /home/francisco/yii-1.1.14/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/radiusSoapApi/protected/yiic.php(8): require_once()
+
+2014/12/20 11:39:18 [error] [php] Undefined variable: nasType (/var/www/radiusSoapApi/protected/components/RadClient.php:35)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#1 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): RadClientCommand->run()
+#2 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#4 /home/francisco/yii-1.1.14/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/radiusSoapApi/protected/yiic.php(8): require_once()
+
+2014/12/20 11:40:53 [error] [php] Undefined variable: nasType (/var/www/radiusSoapApi/protected/components/RadClient.php:35)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#1 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): RadClientCommand->run()
+#2 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#4 /home/francisco/yii-1.1.14/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/radiusSoapApi/protected/yiic.php(8): require_once()
+
+2014/12/20 11:41:15 [error] [php] Undefined variable: nasType (/var/www/radiusSoapApi/protected/components/RadClient.php:35)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#1 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): RadClientCommand->run()
+#2 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#4 /home/francisco/yii-1.1.14/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/radiusSoapApi/protected/yiic.php(8): require_once()
+
+2014/12/20 11:41:22 [error] [php] Undefined variable: nasType (/var/www/radiusSoapApi/protected/components/RadClient.php:35)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#1 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): RadClientCommand->run()
+#2 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#4 /home/francisco/yii-1.1.14/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/radiusSoapApi/protected/yiic.php(8): require_once()
+
+2014/12/20 11:41:46 [error] [php] Undefined variable: nasType (/var/www/radiusSoapApi/protected/components/RadClient.php:35)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#1 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): RadClientCommand->run()
+#2 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#4 /home/francisco/yii-1.1.14/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/radiusSoapApi/protected/yiic.php(8): require_once()
+
+2014/12/20 11:42:44 [error] [php] Undefined variable: nasType (/var/www/radiusSoapApi/protected/components/RadClient.php:35)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#1 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): RadClientCommand->run()
+#2 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#4 /home/francisco/yii-1.1.14/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/radiusSoapApi/protected/yiic.php(8): require_once()
+
+2014/12/20 11:43:09 [error] [php] Undefined variable: sessionId (/var/www/radiusSoapApi/protected/components/RadClient.php:36)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#1 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): RadClientCommand->run()
+#2 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#4 /home/francisco/yii-1.1.14/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/radiusSoapApi/protected/yiic.php(8): require_once()
+
+2014/12/20 11:43:12 [error] [php] Undefined variable: sessionId (/var/www/radiusSoapApi/protected/components/RadClient.php:36)
+Stack trace:
+#0 /home/francisco/yii-1.1.14/framework/console/CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#1 /home/francisco/yii-1.1.14/framework/console/CConsoleCommandRunner.php(71): RadClientCommand->run()
+#2 /home/francisco/yii-1.1.14/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /home/francisco/yii-1.1.14/framework/base/CApplication.php(180): CConsoleApplication->processRequest()
+#4 /home/francisco/yii-1.1.14/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/radiusSoapApi/protected/yiic.php(8): require_once()
+
+2014/12/20 12:06:02 [info] [application] echo "Acct-Session-Id=223216" | /home/francisco/freeradius-2.2.4/bin/radclient -4 -n 1 -s 192.168.1.201:1700 disconnect pirinola
+in /var/www/radiusSoapApi/protected/commands/RadClientCommand.php (22)
+in /var/www/radiusSoapApi/protected/controllers/SiteController.php (93)
+in /var/www/radiusSoapApi/index.php (14)
