@@ -62,6 +62,9 @@ class SiteController extends Controller {
      */
     public function Suspend($username) {
 
+        if (!$this->checkAcl(CHttpRequest::getUserHostAddress()))
+            return false;
+
         $model = Radusergroup::model();
         $userGroups = $model->findAllByAttributes(array("username" => $username));
         $reject = false;
@@ -72,19 +75,25 @@ class SiteController extends Controller {
             foreach ($userGroups as $group) {
                 if ($group->groupname == "REJECT") {
                     $reject = true;
-                    $group->priority = 0;
+                    //$group->priority = 0;
+                    $db->createCommand()->update('radusergroup', array('priority' => 0), "username = '" . $group->username . "' AND groupname = '" . $group->groupname . "'");
                 }
                 /* else {
                   $group->priority++;
                   } */
-                $group->update();
+
+                //$group->update();
             }
             if (!$reject) {
-                $newGroup = new Radusergroup();
-                $newGroup->username = $username;
-                $newGroup->groupname = "REJECT";
-                $newGroup->priority = 0;
-                $newGroup->save();
+                /*
+                  $newGroup = new Radusergroup();
+                  $newGroup->username = $username;
+                  $newGroup->groupname = "REJECT";
+                  $newGroup->priority = 0;
+                  $newGroup->save();
+                 * 
+                 */
+                $db->createCommand()->insert('radusergroup', array('username' => $username, 'groupname' => 'REJECT', 'priority' => 0));
             }
             $commandPath = Yii::app()->getBasePath() . DIRECTORY_SEPARATOR . 'commands';
             $runner = new CConsoleCommandRunner();
@@ -101,6 +110,10 @@ class SiteController extends Controller {
      * @soap
      */
     public function UnSuspend($username) {
+
+        if (!$this->checkAcl(CHttpRequest::getUserHostAddress()))
+            return false;
+
         $model = Radusergroup::model();
         $userGroups = $model->findAllByAttributes(array("username" => $username));
         $reject = false;
@@ -111,19 +124,24 @@ class SiteController extends Controller {
             foreach ($userGroups as $group) {
                 if ($group->groupname == "REJECT") {
                     $reject = true;
-                    $group->priority = 9;
+                    //$group->priority = 9;
+                    $db->createCommand()->update('radusergroup', array('priority' => 9), "username = '" . $group->username . "' AND groupname = '" . $group->groupname . "'");
                 }
                 /* else {
                   $group->priority++;
                   } */
-                $group->update();
+                //$group->update();
             }
             if (!$reject) {
-                $newGroup = new Radusergroup();
-                $newGroup->username = $username;
-                $newGroup->groupname = "REJECT";
-                $newGroup->priority = 9;
-                $newGroup->save();
+                /*
+                  $newGroup = new Radusergroup();
+                  $newGroup->username = $username;
+                  $newGroup->groupname = "REJECT";
+                  $newGroup->priority = 9;
+                  $newGroup->save();
+                 * 
+                 */
+                $db->createCommand()->insert('radusergroup', array('username' => $username, 'groupname' => 'REJECT', 'priority' => 9));
             }
             return true;
         }
@@ -147,6 +165,8 @@ class SiteController extends Controller {
          * second   = $limit / 600
          * third    = $limit / 300
          */
+        if (!$this->checkAcl(CHttpRequest::getUserHostAddress()))
+            return false;
 
         $user = Radcheck::model()->findAllByAttributes(array('username' => $username));
 
@@ -190,6 +210,16 @@ class SiteController extends Controller {
         } else {
             return false;
         }
+    }
+
+    private function checkAcl($ip) {
+        $match = false;
+        foreach (Yii::app()->params['acl'] as $value) {
+            if ($ip == $value || $value == '*') {
+                $match = true;
+            }
+        }
+        return $match;
     }
 
 }

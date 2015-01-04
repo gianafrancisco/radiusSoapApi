@@ -21,6 +21,8 @@ class RadClient {
     private $nasSecret = "";
     private $nasType = "";
     private $radClientCmd = "/home/francisco/freeradius-2.2.4/bin/radclient";
+    //private $radClientCmd = "/usr/local/freeradius-2.2.0/bin/radclient";
+    
 
     function RadClient($username, $sessionId, $nasIpaddress, $nasPort, $nasSecret, $nasType) {
         $this->username = $username;

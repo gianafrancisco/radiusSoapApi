@@ -19,11 +19,21 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),*/
 		// uncomment the following to use a MySQL database
+		/*
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=radius',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => 'IsaacNewton',
+			'charset' => 'utf8',
+		),
+                 * 
+                 */
+            	'db'=>array(
+			'connectionString' => 'mysql:host=radiusmysql.cajadzo6fbz6.ap-southeast-2.rds.amazonaws.com;dbname=radius',
+			'emulatePrepare' => true,
+			'username' => 'radiusmysql',
+			'password' => 'efSeFUsPs9',
 			'charset' => 'utf8',
 		),
 		'log'=>array(

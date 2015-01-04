@@ -8,6 +8,11 @@
  * @property string $groupname
  * @property integer $priority
  */
+
+/*
+ * ALTER TABLE `radusergroup` ADD PRIMARY KEY( `username`, `groupname`);
+ */
+
 class Radusergroup extends CActiveRecord
 {
 	/**

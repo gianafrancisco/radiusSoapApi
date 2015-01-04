@@ -21,13 +21,13 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		
+		/*
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123456',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
-		),
+		),*/
 		
 	),
 
@@ -52,7 +52,6 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),*/
 		// uncomment the following to use a MySQL database
-		
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=radius',
 			'emulatePrepare' => true,
@@ -60,7 +59,15 @@ return array(
 			'password' => 'IsaacNewton',
 			'charset' => 'utf8',
 		),
-		
+            /*
+            	'db'=>array(
+			'connectionString' => 'mysql:host=radiusmysql.cajadzo6fbz6.ap-southeast-2.rds.amazonaws.com;dbname=radius',
+			'emulatePrepare' => true,
+			'username' => 'radiusmysql',
+			'password' => 'efSeFUsPs9',
+			'charset' => 'utf8',
+		),
+            */
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
@@ -87,6 +94,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'gianafrancisco@gmail.com',
-                'acl'=>array('*')
+                'acl'=>array('127.0.0.1')
 	),
 );

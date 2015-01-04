@@ -6,12 +6,16 @@
 //$client=new SoapClient('http://127.0.0.1/soapApi/index.php?r=site/soap',array('username'=>'francisco','password'=>'pass','location'=>'http://127.0.0.1/soapApi/index.php?r=site/soap','url'=>'http://127.0.0.1/soapApi/','soap_version'=>SOAP_1_2));
 
 //$client=new SoapClient('http://103.26.62.218:8080/soapApi/index.php?r=site/soap',array('soap_version'   => SOAP_1_2));
-$client=new SoapClient('http://127.0.0.1/radiusSoapApi/index.php?r=site/soap&id=111');
+//$client=new SoapClient('http://127.0.0.1/radiusSoapApi/index.php?r=site/soap&id=111');
+
+$client=new SoapClient('http://14.137.150.90/radiusApi/index.php?r=site/soap');
+
 
 $functions = $client->__getFunctions ();
 var_dump ($functions);
 
-if($client->speedLimit("francisco",10485760,10485760)){
+//if($client->speedLimit("testuser",10485760,10485760)){
+if($client->unsuspend("testuser")){
     echo "OK";
 }else
     echo "FAIL";
