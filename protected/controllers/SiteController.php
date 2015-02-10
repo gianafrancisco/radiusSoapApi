@@ -212,6 +212,38 @@ class SiteController extends Controller {
         }
     }
 
+    /**
+     * @param string the username
+     * @return bool
+     * @soap
+     */
+    public function RemoveSpeedLimit($username) {
+        /*
+         * Cisco-AVPair 
+         * 
+         * lcp:interface-config=rate-limit output 10485760 16000 32000 conform-action transmit exceed-action drop
+         * lcp:interface-config=rate-limit input 10485760 16000 32000 conform-action transmit exceed-action drop
+         * 
+         * first    = $limit
+         * second   = $limit / 600
+         * third    = $limit / 300
+         */
+        if (!$this->checkAcl(CHttpRequest::getUserHostAddress()))
+            return false;
+
+        $user = Radcheck::model()->findAllByAttributes(array('username' => $username));
+
+        if ($user == NULL) {
+            return false;
+        }
+
+        $reply = Radreply::model()->findAllByAttributes(array("username" => $username, "attribute" => "Cisco-AVPair"));
+        foreach ($reply as $r) {
+            $r->delete();
+        }
+        return true;
+    }
+
     private function checkAcl($ip) {
         $match = false;
         foreach (Yii::app()->params['acl'] as $value) {
